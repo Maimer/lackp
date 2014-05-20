@@ -7,8 +7,8 @@
   <body>
     <h1><%= @position_name %></h1>
     <ul>
-      <% @roster.each do |name, position| %>
-        <li><%= name %> - <%= position %></li>
+      <% @position.each do |name| %>
+        <li><%= name[0] %> - <%= name[1] %></li>
       <% end %>
     </ul>
   </body>

@@ -42,6 +42,18 @@ def make_roster(data, teamname)
   @rosterhash
 end
 
+def make_position(data, position)
+  @positionarray = []
+  data.each do |team, players|
+    players.each do |player|
+      if player[2] == position
+        @positionarray << [(player[0] + " " + player[1]), team]
+      end
+    end
+  end
+  @positionarray
+end
+
 get '/' do
   @data = make_data()
   @teams = make_teams(@data)
@@ -66,6 +78,8 @@ end
 
 get '/position/:position_name' do
   @position_name = params[:position_name]
+  @data = make_data()
+  @position = make_position(@data, @position_name)
   # The :position_name is available in our params hash
   erb :positionpage
 end
