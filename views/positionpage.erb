@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>League of Cool Kickball Professionals (LACKP) - <%= @position_name %></title>
+    <!-- <link rel="stylesheet" href="home.css" /> -->
+  </head>
+  <body>
+    <h1><%= @position_name %></h1>
+    <ul>
+      <% @roster.each do |name, position| %>
+        <li><%= name %> - <%= position %></li>
+      <% end %>
+    </ul>
+  </body>
+</html>
